@@ -1,0 +1,533 @@
+@charset "UTF-8";
+/*!
+ * Theme Name: Sortedam
+ * Theme URI: http://michielbijl.nl
+ * Author: Michiel Bijl
+ * Author URI: http://michielbijl.nl
+ * Description: WordPress theme for michielbijl.nl
+ * Version: 3.0
+ */
+
+/* Config; */
+/* These are the default viewport changes on which UI changes.
+ * But feel free to use other queries to fit your content.
+ */
+
+/* Some handy selectors to minimise writing.
+ * Don't add :--list ul, ol; that is longer and thus defeats the purpose.
+ */
+
+/* Declaration of all variables used throughout
+ * Have to be reviewed every now and then.
+ */
+:root {
+
+  /* -26% puts this at the same luminosity as ornament-colour */
+}
+/* NOTE: I'm not getting these to work: https://github.com/travco/postcss-extend */
+
+/* Base; */
+* {
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 1em;
+  color: hsl(0, 0%, 17%);
+  font-family: "PT Serif", Palatino, Athelas, Georgia, serif;
+  line-height: 1.6;
+}
+body > header {
+  /* autoprefixer: off */
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  position: relative;
+  margin: -1em -1em 0;
+  padding: 2rem 1em 0;
+  min-height: 12.5em;
+  overflow: hidden;
+  color: hsl(0, 0%, 17%);
+  font-family: "Lucida Grande", sans-serif;
+  text-align: center;
+  background:
+    no-repeat
+    fixed
+    linear-gradient(
+      to bottom right,
+      hsl(44, 100%, 73%),
+      hsl(37, 86%, 59%)
+    );
+  background-size: cover;
+}
+body > header p {
+  margin: 0;
+}
+body > header p:first-child {
+  font-size: 2em;
+  font-weight: 700;
+}
+body > header p:first-child:first-letter {
+  font-size: 1em;
+}
+body > header a {
+  color: inherit;
+}
+header nav {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 50em;
+}
+header nav ul {
+  margin: 2rem 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(43, 43, 43, 0.6);
+  list-style: none;
+}
+header nav li {
+  border-top: 1px solid rgba(43, 43, 43, 0.6);
+}
+header nav a {
+  display: block;
+  margin-top: -1px;
+  padding: 20px 0;
+  border-top: 2px solid transparent;
+  color: hsl(0, 0%, 17%);
+  font-family: Tahoma, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+header nav a:focus, header nav a:hover, header nav [aria-current="page"] {
+  border-top-color: hsl(224, 66%, 36%);
+  color: hsl(224, 66%, 36%);
+  text-decoration: none;
+  background: hsla(0, 100%, 100%, 0.3);
+}
+
+@media (min-width: 40em) {
+  header nav {
+    padding: 2rem 2rem 0;
+  }
+  header nav ul {
+    /* autoprefixer: off */
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: 0;
+    border-top: 1px solid rgba(43, 43, 43, 0.6);
+    border-bottom: none;
+  }
+  header nav li {
+    margin-top: -2px;
+    border-top: none;
+  }
+  header nav li + li {
+    margin-left: 1.25rem;
+  }
+  header nav a {
+    margin-top: 0;
+  }
+  header nav a:focus, header nav a:hover, header nav [aria-current="page"] {
+    background: none;
+  }
+  [data-whatinput="keyboard"] header nav a:focus {
+    outline: none;
+    box-shadow: inset 0 3px 0 0 hsl(210, 100%, 87%);
+  }
+  header nav a:active {
+    background: rgba(31, 64, 152, 0.9);
+  }
+}
+main {
+  margin: 0 auto;
+  padding-top: 4rem;
+  max-width: 50em;
+  background: #fff;
+}
+main:focus {
+  outline: none;
+}
+[data-whatinput="keyboard"] main:focus {
+  -webkit-animation: main 2s;
+          animation: main 2s;
+}
+body > footer {
+  position: relative;
+  margin: 5rem auto 0;
+  padding-top: 1.6em;
+  padding-bottom: 0.6em;
+  max-width: 50em;
+  font-family: "Lucida Grande", sans-serif;
+}
+body > footer p {
+  margin: 0;
+}
+body > footer p + p {
+  margin-top: 0.5em;
+}
+body > footer::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: hsl(0, 0%, 30%);
+  content: '';
+}
+body > footer::after {
+  /*@extend line-square-rotated;*/
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 2px;
+  box-shadow: 0.8em -0.8em 0 0 #fff,
+      0.8em -0.8em 0 2px hsl(0, 0%, 30%),
+      -0.8em 0.8em 0 0 #fff,
+      -0.8em 0.8em 0 2px hsl(0, 0%, 30%),
+      0 0 0 2px hsl(0, 0%, 30%),
+      0.8em -0.8em 0 10px #fff,
+      -0.8em 0.8em 0 10px #fff,
+      0 0 0 10px #fff;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  background: #fff;
+  content: '';
+}
+
+@media (min-width: 50em) {
+  body > footer {
+    /* autoprefixer: off */
+    display: flex;
+    justify-content: space-between;
+  }
+  body > footer p + p {
+    margin-top: 0;
+  }
+}
+@-webkit-keyframes main {
+  0% {
+    background: rgb(0, 25, 51);
+  }
+
+  100% {
+    background: #fff;
+  }
+}
+@keyframes main {
+  0% {
+    background: rgb(0, 25, 51);
+  }
+
+  100% {
+    background: #fff;
+  }
+}
+
+/* Modules; */
+article {
+  position: relative;
+}
+article p, article blockquote, article ul, article ol, article pre {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+}
+article * + *:not(li) {
+  margin-top: 2rem;
+}
+
+article header + * {
+  margin-top: 2rem;
+}
+
+article > footer {
+  position: relative;
+}
+
+article > footer p {
+  margin: 0;
+  text-indent: 0;
+}
+
+article > footer p:nth-last-child(2) {
+  display: inline;
+}
+
+article > footer ul {
+  display: inline;
+  padding: 0;
+  list-style: none;
+}
+
+article > footer li {
+  display: inline-block;
+}
+
+article > footer li + li {
+  margin-left: 0.4em;
+}
+
+article > footer li:not(:last-child)::after {
+  content: ', ';
+}
+
+article + article {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 2px solid hsl(0, 0%, 30%);
+}
+
+article + article::before {
+  /*@extend line-circle;*/
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 100%;
+  box-shadow: 1em 0 0 0 #fff,
+      1em 0 0 2px hsl(0, 0%, 30%),
+      -1em 0 0 0 #fff,
+      -1em 0 0 2px hsl(0, 0%, 30%),
+      0 0 0 2px hsl(0, 0%, 30%),
+      1em 0 0 10px #fff,
+      -1em 0 0 10px #fff,
+      0 0 0 10px #fff;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #fff;
+  content: '';
+}
+
+@media (min-width: 40em) {
+  article header {
+    /* autoprefixer: off */
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  article header time {
+    position: relative;
+    margin-top: 0;
+    padding-left: 1.6em;
+    text-align: right;
+  }
+  article header time span {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+  font-family: "Lucida Grande", sans-serif;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.125rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h1:first-child, h2:first-child {
+  margin-top: 0;
+}
+
+#home h1 {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+p {
+  line-height: 1.6;
+}
+
+article p {
+  text-indent: 2rem;
+}
+
+p:first-child::first-letter, p :not(p) + p:first-letter {
+  font-size: 1.2em;
+}
+
+blockquote, pre {
+  padding-left: calc(2rem - 4px);
+  border-left: 4px solid hsl(0, 0%, 30%);
+}
+
+blockquote {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+blockquote footer {
+  margin-top: 0.8em;
+  text-align: right;
+}
+
+pre {
+  max-width: 100%;
+  border-left-color: rgb(26, 53, 127);
+  overflow-x: auto;
+}
+
+main ul, main ol{
+  padding-left: 2rem;
+  line-height: 1.6;
+}
+
+footer ul, footer ol {
+  padding-left: 0;
+}
+
+@media (min-width: 40em) {
+  blockquote, pre {
+    margin-left: 2rem;
+    padding-left: 2rem;
+  }
+}
+form {
+  counter-reset: fieldsets;
+}
+
+fieldset {
+  border: 0;
+  border-top: 1px solid #aaa;
+}
+
+fieldset legend {
+  padding: 2px 20px;
+  font-family: "Lucida Grande", sans-serif;
+  counter-increment: fieldsets;
+}
+
+fieldset legend::before {
+  content: counter(fieldsets) '. ';
+}
+
+fieldset + fieldset {
+  margin-top: 2rem;
+}
+a {
+  color: hsl(224, 66%, 56%);
+  text-decoration: none;
+}
+a:focus, a:hover {
+  text-decoration: underline;
+}
+
+code {
+  display: inline;
+  margin: 0 .3em;
+  padding: .1rem .3rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  color: hsl(354, 66%, 56%);
+  vertical-align: baseline;
+  background: #efefef;
+}
+img, video {
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+figure {
+
+}
+
+figcaption {
+
+}
+
+header + p > img {
+  margin-left: -2rem;
+}
+body > nav {
+  margin: 5rem auto 0;
+  max-width: 50em;
+}
+body > nav a {
+  color: hsl(0, 0%, 17%);
+  font-size: 1.5em;
+}
+body > nav a:nth-child(2) {
+  float: right;
+}
+body > nav a:nth-child(1)::before {
+  display: inline-block;
+  padding-right: 0.4em;
+  content: '\2190';
+}
+body > nav a:nth-child(2)::after {
+  display: inline-block;
+  padding-left: 0.4em;
+  content: '\2192';
+}
+body > nav span {
+  display: none;
+}
+body > nav::after {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+@media (min-width: 40em) {
+  body > nav span {
+    display: inline;
+  }
+}
+[href="#main"] {
+  position: fixed;
+  top: -100px;
+  left: 10px;
+  z-index: 100;
+  padding: 10px 20px;
+  background: #fff;
+  /* Set a delay on the transition so the skip link won't immediately disappear
+   * when it loses focus.
+   * Source: http://webaim.org/techniques/skipnav/#invisible
+   */
+  -webkit-transition: top 0 2s;
+  transition: top 0 2s;
+}
+[href="#main"]:focus {
+  top: 10px;
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+}
