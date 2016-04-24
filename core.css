@@ -29,9 +29,11 @@ main {
     background: #fff;
 }
 
-.overflow {
-    max-width: 100%;
-    overflow: auto;
+@media (max-width: 40em) {
+    .overflow {
+        max-width: 100%;
+        overflow: auto;
+    }
 }
 
 /* Text stuff */
