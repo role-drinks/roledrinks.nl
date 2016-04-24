@@ -29,6 +29,11 @@ main {
     background: #fff;
 }
 
+.overflow {
+    max-width: 100%;
+    overflow: auto;
+}
+
 /* Text stuff */
 h1,
 h2,
