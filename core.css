@@ -73,6 +73,10 @@ a:hover {
     text-decoration: underline;
 }
 
+a img {
+    border: 0;
+}
+
 code {
     display: inline;
     margin: 0 .3em;
@@ -205,4 +209,8 @@ body > footer::after {
             transform: translate(-50%, -50%) rotate(45deg);
     background: #fff;
     content: '';
+}
+
+body > footer img {
+    height: 1em;
 }
