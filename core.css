@@ -23,6 +23,7 @@ body {
 }
 
 main {
+	display: block;
     margin: 0 auto;
     padding-top: 4rem;
     max-width: 40em;
