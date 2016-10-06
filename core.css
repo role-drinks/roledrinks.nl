@@ -143,6 +143,24 @@ th {
     text-align: left;
 }
 
+#sponsors ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5em;
+  padding: 0;
+  align-items: center;
+  list-style: none;
+}
+
+#sponsors li {
+  flex: 1 0 10em;
+  margin: 0.5em;
+}
+
+#sponsors img {
+  //max-width: 100%;
+}
+
 /* Header */
 body > header {
   /*display: flex;
